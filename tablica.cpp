@@ -17,4 +17,9 @@ double** utworzenie_tabeli(int rozmiar1, int rozmiar2)
 
 int rozmiar1, rozmiar2;
 
-
+void zmiana_wartosci_tablicy(double** arkusz, int rozmiarX, int rozmiarY)
+{
+	
+	cin >> arkusz[rozmiarY][rozmiarX];
+	
+}

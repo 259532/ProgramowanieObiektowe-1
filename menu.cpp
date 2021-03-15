@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 #include "zestaw.h"
 
 using namespace std;
@@ -10,17 +11,15 @@ void interfejs()
 	cout << "\t INSTRUKCJA PROGRAMU" << endl;
 	cout << "--------------------------------------" << endl;
 	
-while(x!=7)
+while(x!=5)
 	{	
-	cout << "\n 1.Utworzenie tablicy" << endl;
+	cout << "1. Utworzenie tablicy" << endl;
 	cout << "2. Zmiana rozmiaru tablicy" << endl;
-	cout << "3. Aktualizowanie zawartosci tablicy" << endl;
-	cout << "4. Zmiana wartosci calej tabeli" << endl;
-	cout << "5. Zmiana wartosci jednego elementu tabeli" << endl;
-	cout << "6. Wyswietlenie tablicy" << endl;
-	cout << "7. Wyjdz z programu" << endl;
+	cout << "3. Zmiana wartosci jednego elementu tabeli" << endl;
+	cout << "4. Wyswietlenie tablicy" << endl;
+	cout << "5. Wyjdz z programu" << endl;
 	cout << "Wpisz numer zadania, do ktorego chcesz sie przedostac: "; cin >> x;
-	system("cls");
+	system("clear");
 	
 	switch(x){
 	
@@ -30,7 +29,7 @@ while(x!=7)
 				
 				cin >> rozmiar1; 
 				
-				cout << "\n Podaj liczbe kolumn: "; 
+				cout << "\nPodaj liczbe kolumn: "; 
 				
 				cin >> rozmiar2;
 				
@@ -40,47 +39,39 @@ while(x!=7)
 	
 		case 2:
 			{
-			
-				//zmiana_rozmiaru();
+				
+				
 			
 			}break;
 		
 		case 3:
 			{
 			
-			
-			
-			}break;
-		
-		case 4:
-			{
-			
-			
-			
-			}break;
-		
-		case 5: 
-			{
-		
+				int x,y;
 				
-		
+				cout << "Wybierz element ktory chcesz zmienic" << endl;
+				cout << "Wybierz wiersz: "; cin >> y;
+				cout << "Wybierz kolumne: "; cin >> x;
+				
+				zmiana_wartosci_tablicy(arkusz, x, y);
+				
+			
 			}break;
 		
-		case 6: 
+		case 4: 
 			{
 			
 				wyswietlenie(arkusz, rozmiar1, rozmiar2);
 			
 			}break;
 			
-			
-		case 7: 
+		case 5: 
 			{
 			
-				exit;
+				exit(0);
 			
 			}break;
-			
+		
 		default:
 			{
 				cout << "Nie ma takiej mozliwosci, wybierz z zakresu 1-4" << endl;

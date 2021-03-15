@@ -12,5 +12,6 @@ void wyswietlenie(double **arkusz, int rozmiar1, int rozmiar2)
 		{
 			cout << arkusz[i][j] << " ";
 		}
+			cout << endl;
 	}
 }		
