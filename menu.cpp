@@ -1,12 +1,14 @@
 #include <iostream>
 #include <cstdlib>
-#include "zestaw.h"
+#include "menu.h"
+#include "tablica.h"
+#include "tablica_wysw.h"
 
 using namespace std;
 
 void interfejs()
 {	
-	int x = 0;
+	int x = 0, a, b, r1, r2;
 	double **arkusz;
 	cout << "\t INSTRUKCJA PROGRAMU" << endl;
 	cout << "--------------------------------------" << endl;
@@ -25,16 +27,10 @@ while(x!=5)
 	
 		case 1:
 			{
-				cout << "Podaj liczbe wierszy: "; 
-				
-				cin >> rozmiar1; 
-				
-				cout << "\nPodaj liczbe kolumn: "; 
-				
-				cin >> rozmiar2;
-				
-				arkusz = utworzenie_tabeli(rozmiar1,rozmiar2);
-		
+                a = rozmiar_1();
+                b = rozmiar_2();
+                arkusz = utworzenie_tabeli(a, b);
+            
 			}break;
 	
 		case 2:
@@ -47,21 +43,15 @@ while(x!=5)
 		case 3:
 			{
 			
-				int x,y;
-				
-				cout << "Wybierz element ktory chcesz zmienic" << endl;
-				cout << "Wybierz wiersz: "; cin >> y;
-				cout << "Wybierz kolumne: "; cin >> x;
-				
-				zmiana_wartosci_tablicy(arkusz, x, y);
+				zmiana_wartosci_tablicy(arkusz);
 				
 			
 			}break;
 		
 		case 4: 
 			{
-			
-				wyswietlenie(arkusz, rozmiar1, rozmiar2);
+            
+				wyswietlenie(arkusz, a, b);
 			
 			}break;
 			
