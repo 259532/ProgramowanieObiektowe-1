@@ -7,11 +7,13 @@ using namespace std;
 
 void wyswietlenie_arkusza(Tablica tab) {
 
-    for (int i = 0; i < tab.height; i++) {
+    //cout << Tablica::height; nie 
 
-        for (int z = 0; z < tab.width; z++) {
+    for (int i = 0; i < tab.height_setter(); i++) {
 
-            cout << tab.sheet[i][z] << " ";
+        for (int z = 0; z < tab.width_setter(); z++) {
+
+            cout << tab.value_setter(i, z) << " ";
         }
         cout << endl;
     }

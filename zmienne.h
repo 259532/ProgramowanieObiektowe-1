@@ -9,7 +9,7 @@ extern int width;
 /** \brief Zawiera inforamcje dotyczce iloisci wierszy
  *
  */
-extern int height;
+extern int wysokosc;
 
 /** \brief Arkusz programu
  *

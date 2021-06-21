@@ -20,8 +20,10 @@ void menu_tab()
 
         case 1: {
 
-            arkusz_dane(&tab);
-            tworzenie_arkusza(&tab);
+            int width = arkusz_dane_height();
+            int height = arkusz_dane_width();
+
+            tab.tworzenie_arkusza(width, height);
             break;
         }
         case 2: {
@@ -29,7 +31,7 @@ void menu_tab()
             int szerokosc_a_n, wysokosc_a_n;
             zmiana_tablicy(&szerokosc_a_n, &wysokosc_a_n);
 
-            if (zmien_tab(&tab, szerokosc_a_n, wysokosc_a_n)) {
+            if (tab.zmien_tab(szerokosc_a_n, wysokosc_a_n)) {
 
                 cout << "Bledna wartosc rozmiaru!" << endl;
             }
@@ -43,7 +45,7 @@ void menu_tab()
 
             int x, y, wartosc;
             zmiana_wart(&x, &y, &wartosc);
-            zmian_kom(&tab, x, y, wartosc);
+            tab.zmian_kom(x, y, wartosc);
             break;
         }
         case 4: {
@@ -96,12 +98,25 @@ void wstep() {
     cout << "Wybierz numer zeby zainicjowac funkcje: ";
 }
 
-void arkusz_dane(Tablica* tab) {
+int arkusz_dane_width() {
+
+    int width;
 
     cout << "Podaj szerokosc arkusza: " << endl;
-    cin >> (*tab).width;
+    cin >> width;
+
+    return (width);
+
+}
+
+int arkusz_dane_height() {
+
+    int height;
+
     cout << "Podaj wysokosc arkusza: " << endl;
-    cin >> (*tab).height;
+    cin >> height;
+
+    return (height);
 }
 
 void zmiana_tablicy(int* szerokosc_a_n, int* wysokosc_a_n) {

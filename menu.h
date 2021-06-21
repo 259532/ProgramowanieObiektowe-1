@@ -7,11 +7,6 @@
 */
 void menu_tab();
 
-/** \brief Funkcja sluzaca do wpisywania danych do programu
- *
- */
-void arkusz_dane(class Tablica* arkusz);
-
 /** \brief Funckja sluzaca do zmiany wielkosci tablicy
  *
  */
@@ -26,3 +21,13 @@ void zmiana_wart(int* x, int* y, int* wartosc);
  *
  */
 void wstep();
+
+/** \brief Funkcja s?u?aca do wyswietlania menu
+ *
+ */
+int arkusz_dane_height();
+
+/** \brief Funkcja s?u?aca do wyswietlania menu
+ *
+ */
+int arkusz_dane_width();

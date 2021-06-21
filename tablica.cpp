@@ -1,18 +1,15 @@
 #include <iostream>
-#include <iostream>
 #include "tablica_wysw.h"
 #include "menu.h"
 #include "tablica.h"
 #include "plik.h"
 using namespace std;
 
-int Tablica::get_height(){
+int Tablica::tworzenie_arkusza(int width, int height){
 
-    return height;
-}
+    Tablica::width = width;
+    Tablica::height = height;
 
-int Tablica::tworzenie_arkusza(int width, int height)
-{
     Tablica::sheet = new double* [Tablica::width];
 
     if (Tablica::width < 1 || Tablica::height < 1) {
@@ -41,7 +38,7 @@ void Tablica::zmian_kom(int x, int y, int wartosc) {
     Tablica::sheet[y][x] = wartosc;
 }
 
-int Tablica::zmien_tab( int new_x, int new_y) {
+int Tablica::zmien_tab(int new_x, int new_y) {
 
     if (new_x < 1 || new_y < 1) {
 
@@ -54,28 +51,43 @@ int Tablica::zmien_tab( int new_x, int new_y) {
 
         tablica_po_zmianie[k] = new double[new_x];
     }
-    if (new_x < (*tab).width) {
+    if (new_x < Tablica::width) {
 
-        (*tab).width = new_x;
+        Tablica::width = new_x;
     }
 
-    if (new_y < (*tab).height) {
+    if (new_y < Tablica::height) {
 
-        (*tab).height = new_y;
+        Tablica::height = new_y;
     }
 
 
-    for (int i = 0; i < (*tab).height; i++) {
+    for (int i = 0; i < Tablica::height; i++) {
 
-        for (int j = 0; j < (*tab).width; j++) {
+        for (int j = 0; j < Tablica::width; j++) {
 
-            tablica_po_zmianie[i][j] = (*tab).sheet[i][j];
+            tablica_po_zmianie[i][j] = Tablica::sheet[i][j];
         }
     }
 
-    (*tab).sheet = tablica_po_zmianie;
+    Tablica::sheet = tablica_po_zmianie;
 
-    (*tab).width = new_x; (*tab).height = new_y;
+    Tablica::width = new_x; Tablica::height = new_y;
     return 0;
 
+}
+
+int Tablica::height_setter() {
+
+    return Tablica::height;
+}
+
+int Tablica::width_setter(){
+
+    return Tablica::width;
+}
+
+double Tablica::value_setter(int width, int height){ //zajebiscie
+    
+    return Tablica::sheet[width][height];
 }

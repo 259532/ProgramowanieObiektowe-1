@@ -8,23 +8,30 @@ using namespace std;
 
 int read(Tablica* tab) {
 
-    (*tab).sheet = nullptr;
+    int temp_val;
+    Tablica tab_zap;
+
+    int height;
+    int width;
+
     ifstream plik("Arkusz kalkulacyjny.txt");
 
     if (plik.good()) {
 
-        /*int width = arkusz_dane_height();
-        int height = arkusz_dane_width();
+        plik >> height;
+        plik >> width;
 
-        tworzenie_arkusza(int width, int height);
+        tab_zap.tworzenie_arkusza(width, height);
+        
+        for (int i = 0; i < height; i++) {
 
-        for (int i = 0; i < tab -> get_height(); i++) {
+            for (int j = 0; j < width; j++) {
 
-            for (int j = 0; j < (*tab).width; j++) {
-
-                plik >> (*tab).sheet[i][j];
+                plik >> temp_val;
+                tab_zap.zmian_kom(j, i, temp_val);
             }
         }
+        (*tab) = tab_zap;
         plik.close();
         return 1;
     }
@@ -35,18 +42,20 @@ int read(Tablica* tab) {
     }
 };
 
-int write(Tablica tab) {
+int write(Tablica tab) {      
 
     ofstream plik("Arkusz kalkulacyjny.txt");
 
     if (plik.good()) {
 
+        plik << tab.height_setter();
+        plik << tab.width_setter();
 
-        for (int i = 0; i < tab.height; i++) {
+        for (int i = 0; i < tab.height_setter(); i++) {
 
-            for (int j = 0; j < tab.width; j++) {
+            for (int j = 0; j < tab.width_setter(); j++) {
 
-                plik << tab.sheet[i][j] << "\t";
+                plik << tab.value_setter(j, i) << "\t";
             }
             plik << "\n";
         }
