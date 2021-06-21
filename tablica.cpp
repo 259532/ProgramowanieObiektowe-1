@@ -1,35 +1,47 @@
 #include <iostream>
+#include <iostream>
 #include "tablica_wysw.h"
 #include "menu.h"
 #include "tablica.h"
 #include "plik.h"
 using namespace std;
 
-void tworzenie_arkusza(Tablica* tab)
+int Tablica::get_height(){
+
+    return height;
+}
+
+int Tablica::tworzenie_arkusza(int width, int height)
 {
-    (*tab).sheet = new double* [(*tab).width];
+    Tablica::sheet = new double* [Tablica::width];
 
-    for (int i = 0; i < (*tab).width; i++) {
+    if (Tablica::width < 1 || Tablica::height < 1) {
 
-        (*tab).sheet[i] = new double[(*tab).height];
+        return 0;
+    }
+        else {
+            for (int i = 0; i < Tablica::width; i++) {
+
+                Tablica::sheet[i] = new double[Tablica::height];
+        }
     }
 
-    for (int i = 0; i < (*tab).width; i++) {
+    for (int i = 0; i < Tablica::width; i++) {
 
-        for (int z = 0; z < (*tab).height; z++) {
+        for (int z = 0; z < Tablica::height; z++) {
 
-            (*tab).sheet[i][z] = 0;
+            Tablica::sheet[i][z] = 0;
         }
         cout << endl;
     };
 }
 
-void zmian_kom(Tablica* tab, int x, int y, int wartosc) {
+void Tablica::zmian_kom(int x, int y, int wartosc) {
 
-    (*tab).sheet[y][x] = wartosc;
+    Tablica::sheet[y][x] = wartosc;
 }
 
-int zmien_tab(Tablica* tab, int new_x, int new_y) {
+int Tablica::zmien_tab( int new_x, int new_y) {
 
     if (new_x < 1 || new_y < 1) {
 

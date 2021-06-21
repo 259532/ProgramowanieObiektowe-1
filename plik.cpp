@@ -13,9 +13,12 @@ int read(Tablica* tab) {
 
     if (plik.good()) {
 
-        tworzenie_arkusza(tab);
+        /*int width = arkusz_dane_height();
+        int height = arkusz_dane_width();
 
-        for (int i = 0; i < (*tab).height; i++) {
+        tworzenie_arkusza(int width, int height);
+
+        for (int i = 0; i < tab -> get_height(); i++) {
 
             for (int j = 0; j < (*tab).width; j++) {
 
