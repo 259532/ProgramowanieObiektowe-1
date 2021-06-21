@@ -5,13 +5,13 @@
 #include "plik.h"
 using namespace std;
 
-void wyswietlenie_arkusza(Tablica tab){
+void wyswietlenie_arkusza(Tablica tab) {
 
-    for (int i = 0; i < tab.wysokosc; i++){
+    for (int i = 0; i < tab.height; i++) {
 
-        for (int z = 0; z < tab.szerokosc; z++){
+        for (int z = 0; z < tab.width; z++) {
 
-            cout << tab.Arkusz[i][z] << " ";
+            cout << tab.sheet[i][z] << " ";
         }
         cout << endl;
     }

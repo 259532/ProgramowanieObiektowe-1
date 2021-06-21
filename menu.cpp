@@ -12,68 +12,68 @@ void menu_tab()
     int wybor;
 
 
-    while(1){
+    while (1) {
 
         wstep();
         cin >> wybor;
-        switch (wybor){
+        switch (wybor) {
 
-        case 1:{
+        case 1: {
 
             arkusz_dane(&tab);
             tworzenie_arkusza(&tab);
             break;
         }
-        case 2:{
+        case 2: {
 
             int szerokosc_a_n, wysokosc_a_n;
             zmiana_tablicy(&szerokosc_a_n, &wysokosc_a_n);
 
-            if (zmien_tab(&tab, szerokosc_a_n, wysokosc_a_n)){
+            if (zmien_tab(&tab, szerokosc_a_n, wysokosc_a_n)) {
 
                 cout << "Bledna wartosc rozmiaru!" << endl;
             }
-            else{
+            else {
 
                 cout << "Zmiana przebiegla pomyslnie" << endl;
             }
             break;
         }
-        case 3:{
+        case 3: {
 
             int x, y, wartosc;
             zmiana_wart(&x, &y, &wartosc);
             zmian_kom(&tab, x, y, wartosc);
             break;
         }
-        case 4:{
+        case 4: {
 
             wyswietlenie_arkusza(tab);
             break;
         }
-        case 5:{
+        case 5: {
 
 
             write(tab);
-            
+
             cout << "Tabela zosta?a zapisana" << endl;
-            
+
             break;
         }
-        case 6:{
+        case 6: {
 
             read(&tab);
-            
+
             cout << "Tabela zosta?a wczytana" << endl;
 
             break;
 
         }
-        case 7:{
+        case 7: {
 
             exit(0);
         }
-        default:{
+        default: {
 
             cout << "Wprowadz poprawna liczb?" << endl;
         }
@@ -81,7 +81,7 @@ void menu_tab()
     }
 }
 
-void wstep(){
+void wstep() {
 
     cout << endl;
     cout << "Witam w Exel Light" << endl;
@@ -96,15 +96,15 @@ void wstep(){
     cout << "Wybierz numer zeby zainicjowac funkcje: ";
 }
 
-void arkusz_dane(Tablica* tab){
+void arkusz_dane(Tablica* tab) {
 
     cout << "Podaj szerokosc arkusza: " << endl;
-    cin >> (*tab).szerokosc;
+    cin >> (*tab).width;
     cout << "Podaj wysokosc arkusza: " << endl;
-    cin >> (*tab).wysokosc;
+    cin >> (*tab).height;
 }
 
-void zmiana_tablicy(int* szerokosc_a_n, int* wysokosc_a_n){
+void zmiana_tablicy(int* szerokosc_a_n, int* wysokosc_a_n) {
 
     cout << "Podaj nowa szerokosc arkusza :" << endl;
     cin >> *szerokosc_a_n;
@@ -112,7 +112,7 @@ void zmiana_tablicy(int* szerokosc_a_n, int* wysokosc_a_n){
     cin >> *wysokosc_a_n;
 }
 
-void zmiana_wart(int* x, int* y, int* wartosc){
+void zmiana_wart(int* x, int* y, int* wartosc) {
 
     cout << "Podaj numer wiersza komorki" << endl;
     cin >> *x;

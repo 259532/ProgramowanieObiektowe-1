@@ -6,51 +6,51 @@
 #include <fstream>
 using namespace std;
 
-int read(Tablica* tab){
+int read(Tablica* tab) {
 
-    (*tab).Arkusz = nullptr;
+    (*tab).sheet = nullptr;
     ifstream plik("Arkusz kalkulacyjny.txt");
 
-    if (plik.good()){
+    if (plik.good()) {
 
         tworzenie_arkusza(tab);
 
-        for (int i = 0; i < (*tab).wysokosc; i++){
+        for (int i = 0; i < (*tab).height; i++) {
 
-            for (int j = 0; j < (*tab).szerokosc; j++){
+            for (int j = 0; j < (*tab).width; j++) {
 
-                plik >> (*tab).Arkusz[i][j];
+                plik >> (*tab).sheet[i][j];
             }
         }
         plik.close();
         return 1;
     }
-    else{
+    else {
 
         plik.close();
         return 0;
     }
 };
 
-int write(Tablica tab){
+int write(Tablica tab) {
 
     ofstream plik("Arkusz kalkulacyjny.txt");
 
-    if (plik.good()){
+    if (plik.good()) {
 
 
-        for (int i = 0; i < tab.wysokosc; i++){
+        for (int i = 0; i < tab.height; i++) {
 
-            for (int j = 0; j < tab.szerokosc; j++){
+            for (int j = 0; j < tab.width; j++) {
 
-                plik << tab.Arkusz[i][j] << "\t";
+                plik << tab.sheet[i][j] << "\t";
             }
             plik << "\n";
         }
         plik.close();
         return 1;
     }
-    else{
+    else {
 
         plik.close();
         return 0;

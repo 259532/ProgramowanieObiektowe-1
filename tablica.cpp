@@ -7,63 +7,63 @@ using namespace std;
 
 void tworzenie_arkusza(Tablica* tab)
 {
-    (*tab).Arkusz = new double* [(*tab).szerokosc];
+    (*tab).sheet = new double* [(*tab).width];
 
-    for (int i = 0; i < (*tab).szerokosc; i++){
+    for (int i = 0; i < (*tab).width; i++) {
 
-        (*tab).Arkusz[i] = new double[(*tab).wysokosc];
+        (*tab).sheet[i] = new double[(*tab).height];
     }
 
-    for (int i = 0; i < (*tab).szerokosc; i++){
+    for (int i = 0; i < (*tab).width; i++) {
 
-        for (int z = 0; z < (*tab).wysokosc; z++){
+        for (int z = 0; z < (*tab).height; z++) {
 
-            (*tab).Arkusz[i][z] = 0;
+            (*tab).sheet[i][z] = 0;
         }
         cout << endl;
     };
 }
 
-void zmian_kom(Tablica* tab, int x, int y, int wartosc){
+void zmian_kom(Tablica* tab, int x, int y, int wartosc) {
 
-    (*tab).Arkusz[y][x] = wartosc;
+    (*tab).sheet[y][x] = wartosc;
 }
 
-int zmien_tab(Tablica* tab, int new_x, int new_y){
+int zmien_tab(Tablica* tab, int new_x, int new_y) {
 
-    if (new_x < 1 || new_y < 1){
+    if (new_x < 1 || new_y < 1) {
 
         return 1;
     }
 
     double** tablica_po_zmianie = new double* [new_y];
 
-    for (int k = 0; k < new_y; k++){
+    for (int k = 0; k < new_y; k++) {
 
         tablica_po_zmianie[k] = new double[new_x];
     }
-    if (new_x < (*tab).szerokosc){
+    if (new_x < (*tab).width) {
 
-        (*tab).szerokosc = new_x;
+        (*tab).width = new_x;
     }
 
-    if (new_y < (*tab).wysokosc){
+    if (new_y < (*tab).height) {
 
-        (*tab).wysokosc = new_y;
+        (*tab).height = new_y;
     }
 
-    
-    for (int i = 0; i < (*tab).wysokosc; i++){
 
-        for (int j = 0; j < (*tab).szerokosc; j++){
+    for (int i = 0; i < (*tab).height; i++) {
 
-            tablica_po_zmianie[i][j] = (*tab).Arkusz[i][j];
-            }
+        for (int j = 0; j < (*tab).width; j++) {
+
+            tablica_po_zmianie[i][j] = (*tab).sheet[i][j];
         }
-    
-    (*tab).Arkusz = tablica_po_zmianie;
+    }
 
-    (*tab).szerokosc = new_x; (*tab).wysokosc = new_y;
+    (*tab).sheet = tablica_po_zmianie;
+
+    (*tab).width = new_x; (*tab).height = new_y;
     return 0;
 
 }

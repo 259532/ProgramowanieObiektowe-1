@@ -10,7 +10,7 @@ void menu_tab();
 /** \brief Funkcja sluzaca do wpisywania danych do programu
  *
  */
-void arkusz_dane(struct Tablica* arkusz);
+void arkusz_dane(class Tablica* arkusz);
 
 /** \brief Funckja sluzaca do zmiany wielkosci tablicy
  *

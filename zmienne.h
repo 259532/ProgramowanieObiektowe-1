@@ -4,17 +4,17 @@
 /** \brief Zawiera inforamcje dotyczce iloisci kolumn
  *
  */
-extern int szerokosc;
+extern int width;
 
 /** \brief Zawiera inforamcje dotyczce iloisci wierszy
  *
  */
-extern int wysokosc;
+extern int height;
 
 /** \brief Arkusz programu
  *
  *  Zapisany jako tablica dwuwumiarowa
  *
  */
-extern double** arkusz;
+extern double** sheet;
 //
