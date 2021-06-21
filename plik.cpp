@@ -96,3 +96,4 @@ int write(Tablica tab) {
         return 0;
     }
 };
+

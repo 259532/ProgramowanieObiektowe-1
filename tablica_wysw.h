@@ -2,7 +2,9 @@
 #include "tablica.h"
 /// @file
 
-/** \brief Funkcja wy?wietla arkusz na ekranie u?ytkownika
- *  @param[in] Struktura otrzymuje tablice i przekazuje ja uzytkownikowi
+/**
+ *  \brief Funkcja wyswietla arkusz na ekranie uzytkownika
+ *  @param[in] Arksuz przeazuje informacje uzytkownikowi
  */
 void wyswietlenie_arkusza(Tablica tab);
+

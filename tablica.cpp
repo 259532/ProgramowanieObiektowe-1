@@ -244,15 +244,17 @@ double Tablica::column_addition(int width) {
 
     double score = 0;
 
-    if (type[width] == 0) {
+    if (type[width] == 1) {
 
         for (int i = 0; i < Tablica::height; i++) {
             score += stod(Tablica::return_cell(width, i)->getter());
 
         }
-        return score;
+        //return score;
 
     }
+
+    return score;
 }
 
 double Tablica::column_min(int width) {
@@ -260,7 +262,7 @@ double Tablica::column_min(int width) {
     double score = 0;
 
 
-    if (type[width] == 0) {
+    if (type[width] == 1) {
 
         score = stod(Tablica::return_cell(width, 0)->getter());
 
@@ -271,9 +273,11 @@ double Tablica::column_min(int width) {
             score = stod(Tablica::return_cell(width, i)->getter());
 
         }
-        return score;
+        //return score;
 
     }
+
+    return score;
 }
 
 double Tablica::column_max(int width) {
@@ -281,7 +285,7 @@ double Tablica::column_max(int width) {
     double score = 0;
 
 
-    if (type[width] == 0) {
+    if (type[width] == 1) {
 
         score = stod(Tablica::return_cell(width, 0)->getter());
 
@@ -292,24 +296,28 @@ double Tablica::column_max(int width) {
                 score = stod(Tablica::return_cell(width, i)->getter());
 
         }
-        return score;
+        
 
     }
+
+    return score;
 }
 
 double Tablica::column_mean(int width) {
 
     double score = 0;
 
-    if (type[width] == 0) {
+    if (type[width] == 1) {
 
         for (int i = 0; i < Tablica::height; i++) {
             score += stod(Tablica::return_cell(width, i)->getter());
 
         }
-        return score/Tablica::height;
+        //return score/Tablica::height;
 
     }
+
+    return score / Tablica::height;
 }
 
 double Tablica::row_max(int heaight) {
@@ -348,7 +356,7 @@ double Tablica::row_min(int heaight) {
 
         if (type[i] == 0) {
 
-            score = stod(Tablica::return_cell(i, height)->getter());
+            score = stod(Tablica::return_cell(i, height)->getter()); // throw if type = 0
         }
     }
 
@@ -361,47 +369,22 @@ double Tablica::row_min(int heaight) {
                 score = stod(Tablica::return_cell(i, height)->getter());
             }
         }
+        else {
+            check++;
+        }
     }
 
     return score;
 }
-
-//double Tablica::row_mean(int height) {
-//
-//    
-//    double score;
-//    double check = 0;
-//
-//    for (int i = 0; i < Tablica::width; i++) {
-//
-//        if (type[i] == 0) {
-//
-//            score = stod(Tablica::return_cell(i, height)->getter());
-//        }
-//    }
-//
-//    for (int i = 0; i < Tablica::width; i++) {
-//
-//        if (type[i] == 0) {
-//
-//            if (score > stod(Tablica::return_cell(i, height)->getter())) {
-//
-//                score = stod(Tablica::return_cell(i, height)->getter());
-//            }
-//        }
-//    }
-//}
 
 double Tablica::row_addition(int height) {
     
     double score = 0;
     double check = 0;
 
-    //if (type[height] == 0) {
-
         for (int i = 0; i < Tablica::width; i++) {
 
-            if (type[i] == 0) {
+            if (type[i] == 1) {
 
                 score += stod(Tablica::return_cell(height, i)->getter());
 
@@ -414,17 +397,7 @@ double Tablica::row_addition(int height) {
 
         }
 
-        // if (check == Tablica::height) {
-
-        //     cout << "Brak liczb" << endl;
-
-        // }
-        // else {
-
-             return score;
-        }
-        
-    //}
+        return score;
 }
 
 double Tablica::row_mean(int height) {
@@ -432,11 +405,11 @@ double Tablica::row_mean(int height) {
     double score = 0;
     double check = 0;
 
-    //if (type[i] == 0) {
+
 
         for (int i = 0; i < Tablica::width; i++) {
 
-            if (type[i] == 0) {
+            if (type[i] == 1) {
 
                 score += stod(Tablica::return_cell(height, i)->getter());
 
@@ -449,15 +422,7 @@ double Tablica::row_mean(int height) {
 
         }
 
-        if (check == Tablica::width) {
 
-            //cout << "Brak liczb" << endl;    return !!!!!
-
-        }
-        else {
-
-            return score / (Tablica::width - check);
-        }
-
-    //}
+        return score / Tablica::width; //(Tablica::width - check);
+ 
 }

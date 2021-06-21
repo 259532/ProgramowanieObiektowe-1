@@ -3,14 +3,15 @@
 
 /// @file
 
-/** \brief Funkcja wczytuje plik z pliku
+/** \brief Funkcja wczytuje arkusz z pliku
 *
- *  @param[in,out] Struktura jest uzupelniana o informacje w pliku
+ *  @param[out] Clasa jest uzupelaniana  o wartosc z pliku
  */
 int read(Tablica* tab);
 
-/** \brief Funkcja "write" zapisuje do pliku tekstowego wielko?? arkusza oraz zawartosc ca?ego arkusza
+/** \brief Funkcja "write" zapisuje do pliku tekstowego wielkosc arkusza oraz zawartosc calego arkusza
 *
  *  @param[in] Arkusz zapisuje tablice do pliku
  */
 int write(Tablica tab);
+

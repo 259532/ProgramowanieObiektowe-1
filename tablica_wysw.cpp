@@ -29,3 +29,4 @@ void wyswietlenie_arkusza(Tablica tab) {
         cout << endl;
     }
 }
+

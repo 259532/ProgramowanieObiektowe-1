@@ -91,9 +91,11 @@ void menu_tab()
 
             int width = 0;
 
-            cout << "Wpisz kolumne w ktorej chcesz dodac liczby: " << endl;
+            cout << "Wpisz kolumne w ktorej chcesz dodac liczby: ";
+            cin >> width;
+            cout << endl;
 
-            tab.column_addition(width); //doda? cin jaka kolumna wariacie?
+            cout << tab.column_addition(width);
 
             break;
         }
@@ -102,32 +104,83 @@ void menu_tab()
             int height = 0;
 
             cout << "Wpisz wiersz w ktorym chcesz dodac liczby: " << endl;
+            cin >> height;
+            cout << endl;
 
-            tab.row_addition(height); //doda? cin jaka kolumna wariacie?
+            cout << tab.row_addition(height);
 
             break;
         }
         case 9: {
 
+            int width = 0;
+
+            cout << "Wpisz kolumne w ktorej chcesz znac najmniejsza liczbe: ";
+            cin >> width;
+            cout << endl;
+
+            cout << tab.column_min(width);
+
             break;
         }
         case 10: {
+
+            int width = 0;
+
+            cout << "Wpisz kolumne w ktorej znac najwieksza liczbe: ";
+            cin >> width;
+            cout << endl;
+
+            cout << tab.column_max(width);
 
             break;
         }
         case 11: {
 
+            int height = 0;
+
+            cout << "Wpisz wiersz w ktorym chcesz znac najmniejsza liczbe: ";
+            cin >> height;
+            cout << endl;
+
+            cout << tab.row_min(height);
+
             break;
         }
         case 12: {
+
+            int height = 0;
+
+            cout << "Wpisz wiersz w ktorym chcesz znac najwieksza liczbe: ";
+            cin >> height;
+            cout << endl;
+
+            cout << tab.row_max(height);
 
             break;
         }
         case 13: {
 
+            int width = 0;
+
+            cout << "Wpisz kolumne w ktorej chcesz znac srednia wszystkich liczb: ";
+            cin >> width;
+            cout << endl;
+
+            cout << tab.column_mean(width);
+            //tab.column_mean(width);
+
             break;
         }
         case 14: {
+
+            int height = 0;
+
+            cout << "Wpisz wiersz w ktorym chcesz znac srednia wszystkich liczb: ";
+            cin >> height;
+            cout << endl;
+
+            cout << tab.row_mean(height);
 
             break;
         }
@@ -148,10 +201,12 @@ void wstep() {
     cout << endl;
     cout << "Witam w Exel Light" << endl;
     cout << "Co chcesz zrobic?" << endl;
+
     cout << "1. Stworzenie tablicy." << endl;
     cout << "2. Zmienienie rozmiaru tablicy." << endl;
-    cout << "3. Zmiana liczbai tablicy." << endl;
+    cout << "3. Zmiana wartosci komorki." << endl;
     cout << "4. Wyswietlenie calej tablicy." << endl;
+
     cout << "5. Zapisanie tablicy do pliku." << endl;
     cout << "6. Odczytanie tablicy z pliku." << endl;
 
@@ -159,12 +214,14 @@ void wstep() {
     cout << "8. Dodawanie liczb w wierszu." << endl;
 
     cout << "9. Minimalna wartosc kolumny." << endl;
-    cout << "10. Minimalna wartosc wiersza." << endl;
+    cout << "10. Maxymalna wartosc kolumny." << endl;
 
-    cout << "11. Odczytanie tablicy z pliku." << endl;
-    cout << "12. Odczytanie tablicy z pliku." << endl;
-    cout << "13. Odczytanie tablicy z pliku." << endl;
-    cout << "14. Odczytanie tablicy z pliku." << endl;
+    cout << "11. Minimalna wartosc wiersza." << endl;
+    cout << "12. Maxymalna wartosc wiersza." << endl;
+
+    cout << "13. Srednia liczb w kolumnie." << endl;
+    cout << "14. Srednia liczb w wierszu." << endl;
+
     cout << "15. Zakonczenie pracy programu" << endl;
     cout << "Wybierz numer zeby zainicjowac funkcje: ";
 }
@@ -207,4 +264,5 @@ void zmiana_wart(int* x, int* y) {
     cout << "Podaj wartosc jaka chcesz przypisac komorce: " << endl;
     
 }
+
 
