@@ -20,8 +20,8 @@ void menu_tab()
 
         case 1: {
 
-            int width = arkusz_dane_height();
-            int height = arkusz_dane_width();
+            int height = arkusz_dane_height();
+            int width = arkusz_dane_width();
 
             tab.tworzenie_arkusza(width, height);
             break;
@@ -43,9 +43,25 @@ void menu_tab()
         }
         case 3: {
 
-            int x, y, wartosc;
-            zmiana_wart(&x, &y, &wartosc);
-            tab.zmian_kom(x, y, wartosc);
+            int x, y;
+            string i;
+
+            zmiana_wart(&x, &y);
+            cin >> i;
+            /*if (tab.return_cell(x, y)->check()) {
+
+                string i;
+                cin >> i;
+                undefined = &(i);
+            }
+            else {
+
+                double i;
+                cin >> i;
+                undefined = &(i);
+            }*/
+
+            tab.return_cell(x, y)->setter(i);
             break;
         }
         case 4: {
@@ -73,11 +89,55 @@ void menu_tab()
         }
         case 7: {
 
+            int width = 0;
+
+            cout << "Wpisz kolumne w ktorej chcesz dodac liczby: " << endl;
+
+            tab.column_addition(width); //doda? cin jaka kolumna wariacie?
+
+            break;
+        }
+        case 8: {
+
+            int height = 0;
+
+            cout << "Wpisz wiersz w ktorym chcesz dodac liczby: " << endl;
+
+            tab.row_addition(height); //doda? cin jaka kolumna wariacie?
+
+            break;
+        }
+        case 9: {
+
+            break;
+        }
+        case 10: {
+
+            break;
+        }
+        case 11: {
+
+            break;
+        }
+        case 12: {
+
+            break;
+        }
+        case 13: {
+
+            break;
+        }
+        case 14: {
+
+            break;
+        }
+        case 15: {
+
             exit(0);
         }
         default: {
 
-            cout << "Wprowadz poprawna liczb?" << endl;
+            cout << "Wprowadz poprawna liczbe" << endl;
         }
         }
     }
@@ -94,7 +154,18 @@ void wstep() {
     cout << "4. Wyswietlenie calej tablicy." << endl;
     cout << "5. Zapisanie tablicy do pliku." << endl;
     cout << "6. Odczytanie tablicy z pliku." << endl;
-    cout << "7. Zakonczenie pracy programu" << endl;
+
+    cout << "7. Dodawanie liczb w kolumnie." << endl;
+    cout << "8. Dodawanie liczb w wierszu." << endl;
+
+    cout << "9. Minimalna wartosc kolumny." << endl;
+    cout << "10. Minimalna wartosc wiersza." << endl;
+
+    cout << "11. Odczytanie tablicy z pliku." << endl;
+    cout << "12. Odczytanie tablicy z pliku." << endl;
+    cout << "13. Odczytanie tablicy z pliku." << endl;
+    cout << "14. Odczytanie tablicy z pliku." << endl;
+    cout << "15. Zakonczenie pracy programu" << endl;
     cout << "Wybierz numer zeby zainicjowac funkcje: ";
 }
 
@@ -127,12 +198,13 @@ void zmiana_tablicy(int* szerokosc_a_n, int* wysokosc_a_n) {
     cin >> *wysokosc_a_n;
 }
 
-void zmiana_wart(int* x, int* y, int* wartosc) {
+void zmiana_wart(int* x, int* y) {
 
     cout << "Podaj numer wiersza komorki" << endl;
     cin >> *x;
     cout << "Podaj numer kolumny komorki" << endl;
     cin >> *y;
     cout << "Podaj wartosc jaka chcesz przypisac komorce: " << endl;
-    cin >> *wartosc;
+    
 }
+
