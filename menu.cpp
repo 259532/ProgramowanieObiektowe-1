@@ -1,71 +1,123 @@
 #include <iostream>
 #include <cstdlib>
+#include "tablica_wysw.h"
 #include "menu.h"
 #include "tablica.h"
-#include "tablica_wysw.h"
-
+#include "plik.h"
 using namespace std;
 
-void interfejs()
-{	
-	int x = 0, a, b, r1, r2;
-	double **arkusz;
-	cout << "\t INSTRUKCJA PROGRAMU" << endl;
-	cout << "--------------------------------------" << endl;
-	
-while(x!=5)
-	{	
-	cout << "1. Utworzenie tablicy" << endl;
-	cout << "2. Zmiana rozmiaru tablicy" << endl;
-	cout << "3. Zmiana wartosci jednego elementu tabeli" << endl;
-	cout << "4. Wyswietlenie tablicy" << endl;
-	cout << "5. Wyjdz z programu" << endl;
-	cout << "Wpisz numer zadania, do ktorego chcesz sie przedostac: "; cin >> x;
-	system("clear");
-	
-	switch(x){
-	
-		case 1:
-			{
-                a = rozmiar_1();
-                b = rozmiar_2();
-                arkusz = utworzenie_tabeli(a, b);
+void menu_tab()
+{
+    Tablica tab;
+    int wybor;
+
+
+    while(1){
+
+        wstep();
+        cin >> wybor;
+        switch (wybor){
+
+        case 1:{
+
+            arkusz_dane(&tab);
+            tworzenie_arkusza(&tab);
+            break;
+        }
+        case 2:{
+
+            int szerokosc_a_n, wysokosc_a_n;
+            zmiana_tablicy(&szerokosc_a_n, &wysokosc_a_n);
+
+            if (zmien_tab(&tab, szerokosc_a_n, wysokosc_a_n)){
+
+                cout << "Bledna wartosc rozmiaru!" << endl;
+            }
+            else{
+
+                cout << "Zmiana przebiegla pomyslnie" << endl;
+            }
+            break;
+        }
+        case 3:{
+
+            int x, y, wartosc;
+            zmiana_wart(&x, &y, &wartosc);
+            zmian_kom(&tab, x, y, wartosc);
+            break;
+        }
+        case 4:{
+
+            wyswietlenie_arkusza(tab);
+            break;
+        }
+        case 5:{
+
+
+            write(tab);
             
-			}break;
-	
-		case 2:
-			{
-				
-				
-			
-			}break;
-		
-		case 3:
-			{
-			
-				zmiana_wartosci_tablicy(arkusz);
-				
-			
-			}break;
-		
-		case 4: 
-			{
+            cout << "Tabela zosta?a zapisana" << endl;
             
-				wyswietlenie(arkusz, a, b);
-			
-			}break;
-			
-		case 5: 
-			{
-			
-				exit(0);
-			
-			}break;
-		
-		default:
-			{
-				cout << "Nie ma takiej mozliwosci, wybierz z zakresu 1-4" << endl;
-			}
-		}
-	}
+            break;
+        }
+        case 6:{
+
+            read(&tab);
+            
+            cout << "Tabela zosta?a wczytana" << endl;
+
+            break;
+
+        }
+        case 7:{
+
+            exit(0);
+        }
+        default:{
+
+            cout << "Wprowadz poprawna liczb?" << endl;
+        }
+        }
+    }
+}
+
+void wstep(){
+
+    cout << endl;
+    cout << "Witam w Exel Light" << endl;
+    cout << "Co chcesz zrobic?" << endl;
+    cout << "1. Stworzenie tablicy." << endl;
+    cout << "2. Zmienienie rozmiaru tablicy." << endl;
+    cout << "3. Zmiana liczbai tablicy." << endl;
+    cout << "4. Wyswietlenie calej tablicy." << endl;
+    cout << "5. Zapisanie tablicy do pliku." << endl;
+    cout << "6. Odczytanie tablicy z pliku." << endl;
+    cout << "7. Zakonczenie pracy programu" << endl;
+    cout << "Wybierz numer zeby zainicjowac funkcje: ";
+}
+
+void arkusz_dane(Tablica* tab){
+
+    cout << "Podaj szerokosc arkusza: " << endl;
+    cin >> (*tab).szerokosc;
+    cout << "Podaj wysokosc arkusza: " << endl;
+    cin >> (*tab).wysokosc;
+}
+
+void zmiana_tablicy(int* szerokosc_a_n, int* wysokosc_a_n){
+
+    cout << "Podaj nowa szerokosc arkusza :" << endl;
+    cin >> *szerokosc_a_n;
+    cout << "Podaj nowa wysokosc arkusza :" << endl;
+    cin >> *wysokosc_a_n;
+}
+
+void zmiana_wart(int* x, int* y, int* wartosc){
+
+    cout << "Podaj numer wiersza komorki" << endl;
+    cin >> *x;
+    cout << "Podaj numer kolumny komorki" << endl;
+    cin >> *y;
+    cout << "Podaj wartosc jaka chcesz przypisac komorce: " << endl;
+    cin >> *wartosc;
 }

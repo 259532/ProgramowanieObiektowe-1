@@ -1,61 +1,69 @@
 #include <iostream>
+#include "tablica_wysw.h"
 #include "menu.h"
 #include "tablica.h"
-#include "tablica_wysw.h"
-
+#include "plik.h"
 using namespace std;
 
-
-int rozmiar_1()
+void tworzenie_arkusza(Tablica* tab)
 {
-    
-    int rozmiar1;
-    
-    cout << "Podaj liczbe wierszy: "; 
+    (*tab).Arkusz = new double* [(*tab).szerokosc];
 
-    cin >> rozmiar1;
-    
-    return rozmiar1;
-    
+    for (int i = 0; i < (*tab).szerokosc; i++){
+
+        (*tab).Arkusz[i] = new double[(*tab).wysokosc];
+    }
+
+    for (int i = 0; i < (*tab).szerokosc; i++){
+
+        for (int z = 0; z < (*tab).wysokosc; z++){
+
+            (*tab).Arkusz[i][z] = 0;
+        }
+        cout << endl;
+    };
 }
 
-int rozmiar_2()
-{
-    
-    int rozmiar2;
-    
-    cout << "\nPodaj liczbe kolumn: "; 
+void zmian_kom(Tablica* tab, int x, int y, int wartosc){
 
-    cin >> rozmiar2;
-    
-    return rozmiar2;
-    
+    (*tab).Arkusz[y][x] = wartosc;
 }
 
-double** utworzenie_tabeli(int rozmiar1, int rozmiar2)
-{
-    
-	double** tab = new double*[rozmiar1];
+int zmien_tab(Tablica* tab, int new_x, int new_y){
 
-	for(int i = 0; i < rozmiar1; i++) tab[i] = new double[rozmiar2];
-	
-	return tab;
-	
-}
+    if (new_x < 1 || new_y < 1){
 
-void zmiana_wartosci_tablicy(double** arkusz)
-{
+        return 1;
+    }
+
+    double** tablica_po_zmianie = new double* [new_y];
+
+    for (int k = 0; k < new_y; k++){
+
+        tablica_po_zmianie[k] = new double[new_x];
+    }
+    if (new_x < (*tab).szerokosc){
+
+        (*tab).szerokosc = new_x;
+    }
+
+    if (new_y < (*tab).wysokosc){
+
+        (*tab).wysokosc = new_y;
+    }
+
     
-    int r1, r2;
+    for (int i = 0; i < (*tab).wysokosc; i++){
+
+        for (int j = 0; j < (*tab).szerokosc; j++){
+
+            tablica_po_zmianie[i][j] = (*tab).Arkusz[i][j];
+            }
+        }
     
-	cout << "Wybierz element ktory chcesz zmienic" << endl;
-    
-    cout << "Wybierz wiersz: "; cin >> r1;
-    
-    cout << "\nWybierz kolumne: "; cin >> r2;
-    
-    cout << "\nPodaj nowa wartosc w wybranym miejscu: ";
-    
-	cin >> arkusz[r1][r2];
-	
+    (*tab).Arkusz = tablica_po_zmianie;
+
+    (*tab).szerokosc = new_x; (*tab).wysokosc = new_y;
+    return 0;
+
 }

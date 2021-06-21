@@ -1,30 +1,32 @@
-///@file
-/**
- *  Funkcja "utworzenie_tabeli" odpowiada za stworzenie tablicy wypelnionej zerami, o wymiarach podanych przez uzytkownika.
- *
- * @param[out] utworzenie_tabeli Po pobraniu wymiarow tabeli tworzy ja i zapisuje w pamieci. 
- * @param[in] rozmiar1 Liczba wierszy tabeli
- * @param[in] rozmiar2 Liczba kolumn tabeli
+#pragma once
+
+/// @file
+struct Tablica{
+
+    double** Arkusz;
+    int szerokosc;
+    int wysokosc;
+};
+
+/** \brief Funkcja tworzy arkusz kozystajac ze struktury Tablica
+* 
+ * @param[in,out] Struktura tablica zawierajaca arkusz
+ * 
+*/
+void tworzenie_arkusza(struct Tablica* tab);
+
+/** \brief Funkcja zmienia wartosci komorek na te podane przez uzytkownika
+* 
+ * @param[in,out] Struktura tablica przekazuje arkusz do manipulacji
+ * 
+*/
+void zmian_kom(struct Tablica* tab, int x, int y, int wartosc);
+
+/** \brief Funkcja zmienia wielkosc arkusza wedle parametrow podanych przez uzytkownika
+* 
+ *  @param[in,out] Struktura zmienia arkusz wedle upodoban uzytkownika
+ *  @param[in] new_x jest parametrem wedlog ktorego arkusz zmienia ilosc kolumn
+ *  @param[in] new_y jest parametrem wedlog ktorego arkusz zmienia ilosc wierszy
+ * 
  */
-double** utworzenie_tabeli(int rozmiar1, int rozmiar2);
-/**
- *  Funkcja "zmiana_wartosci_tablicy" pozwala na zmiane dowolnego elementu tablicy, ktora zostala wczesniej utworzona przez uzytkownika.
- * 
- * @param[in,out] arkusz Pobieranie z pamieci rozmiaru oraz zawartosci tablicy.
- * 
- */
-void zmiana_wartosci_tablicy(double** arkusz);
-/**
- *  Funkcja "rozmiar_1" pozwala na podanie uzytkownikowi pierwszego wymiaru tablicy - wiersze.
- * 
- * @param[out] rozmiar_1 Zwraca liczbe podana przez uzytkownika.
- * 
- */
-int rozmiar_1();
-/**
- *  Funkcja "rozmiar_2" pozwala na podanie uzytkownikowi pierwszego wymiaru tablicy - kolumny.
- * 
- * @param[out] rozmiar_2 Zwraca liczbe podana przez uzytkownika.
- * 
- */
-int rozmiar_2();
+int zmien_tab(struct Tablica* tab, int new_x, int new_y);

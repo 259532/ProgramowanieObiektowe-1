@@ -1,19 +1,18 @@
 #include <iostream>
+#include "tablica_wysw.h"
 #include "menu.h"
 #include "tablica.h"
-#include "tablica_wysw.h"
-
+#include "plik.h"
 using namespace std;
 
-void wyswietlenie(double **arkusz, int rozmiar1, int rozmiar2)
-{
-    
-	for(int i = 0; i < rozmiar1; i++)
-	{
-		for(int j = 0; j < rozmiar2; j++)
-		{
-			cout << arkusz[i][j] << " ";
-		}
-			cout << endl;
-	}
+void wyswietlenie_arkusza(Tablica tab){
+
+    for (int i = 0; i < tab.wysokosc; i++){
+
+        for (int z = 0; z < tab.szerokosc; z++){
+
+            cout << tab.Arkusz[i][z] << " ";
+        }
+        cout << endl;
+    }
 }
